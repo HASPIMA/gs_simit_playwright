@@ -3,6 +3,7 @@ name: Build docker image
 on:
   push:
     branches:
+      - feature/lambda-handler
       - main
 
 jobs:
