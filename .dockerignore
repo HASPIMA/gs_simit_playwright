@@ -185,3 +185,5 @@ cython_debug/
 # Ignore all files related to docker
 .dockerignore
 Dockerfile
+
+.aws/task-definition.json
