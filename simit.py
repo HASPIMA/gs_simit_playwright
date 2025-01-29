@@ -86,7 +86,7 @@ class RegistraduriaScraper:
     def _goto_with_retry(self, page, url, retries=3, timeout=60000):
         for attempt in range(retries):
             try:
-                page.goto(url, timeout=timeout, wait_until='networkidle')
+                page.goto(url, timeout=timeout, wait_until='domcontentloaded')
                 return True
             except PlaywrightTimeoutError:
                 self.logger.warning(
