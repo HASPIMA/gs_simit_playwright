@@ -36,8 +36,8 @@ RUN ./check_playwright_installation.sh
 # Copy the code
 COPY . .
 
-ENV PORT=8000
-EXPOSE 8000
+ENV PORT=80
+EXPOSE 80
 
 # Run API
 CMD exec gunicorn --bind :$PORT app:app
