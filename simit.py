@@ -6,7 +6,7 @@ from dataclasses import dataclass
 from typing import Optional
 
 from playwright.sync_api import TimeoutError as PlaywrightTimeoutError
-from playwright.sync_api import sync_playwright
+from playwright.sync_api import sync_playwright, Page
 
 # Set Playwright browsers path before importing Playwright
 os.environ["PLAYWRIGHT_BROWSERS_PATH"] = "./.playwright-browsers"
@@ -83,7 +83,13 @@ class RegistraduriaScraper:
                     browser.close()
                     self.logger.info("Browser cerrado")
 
-    def _goto_with_retry(self, page, url, retries=3, timeout=60000):
+    def _goto_with_retry(
+        self,
+        page: Page,
+        url: str,
+        retries: int = 3,
+        timeout: float = 60000,
+    ):
         for attempt in range(retries):
             try:
                 page.goto(url, timeout=timeout, wait_until='domcontentloaded')
