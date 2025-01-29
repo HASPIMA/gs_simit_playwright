@@ -40,4 +40,4 @@ ENV PORT=80
 EXPOSE 80
 
 # Run API
-CMD exec gunicorn --bind :$PORT app:app
+CMD exec gunicorn --bind :$PORT app:app --timeout 120
